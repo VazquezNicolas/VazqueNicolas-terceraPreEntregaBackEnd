@@ -1,0 +1,32 @@
+{{#if isValid}}
+<h1>Todos los productos</h1>
+<div>
+    {{#each result}}
+    <div>
+        <p>Producto: {{this.title}} &nbsp; Descripcion: {{this.description}}</p>
+        <p>Categoria: {{this.category}} &nbsp; Precio: {{this.price}} &nbsp; Id: {{this._id}}</p>
+        <button type="click" id="addProduct" data-productid={{this._id}} data-cartid={{this.cartId}}>Comprar</button>
+    </div>
+    <br/>
+    <br/>
+    {{/each}}
+</div>
+<br/>
+<div>
+    {{#if hasPrevPage}}
+        <a href={{prevLink}}><< Anterior</a>
+    {{/if}}
+    &nbsp;
+    {{this.page}}
+    &nbsp;
+     {{#if hasNextPage}}
+        <a href={{nextLink}}>Siguiente >></a>
+    {{/if}} 
+</div>
+
+{{else}}
+<h1>No hay productos para mostrar</h1>
+{{/if}}
+
+
+<script src="/js/addProduct.js"></script>
